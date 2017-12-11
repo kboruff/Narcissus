@@ -15,17 +15,15 @@ ServoBlaster = open('/dev/servoblaster', 'w')		# ServoBlaster is what we use to 
 PanServo = 1
 TiltServo = 2
 # Upper Limit
-_TiltServoUL = 160
+_TiltServoUL = 205
 _PanServoUL = 190
 # Lower Limit
-_TiltServoLL = 120
-_PanServoLL = 150
+_TiltServoLL = 100
+_PanServoLL = 95
 
 # Set Default positions
-#curPosPan = round((_PanServoUL + _PanServoLL)/2) #Uncomment to make pan and tilt reset to middle
-#curPostilt = round((_TiltServoUL + _TiltServoLL)/2)
-curPosPan = 190
-curPosTilt = 145
+curPosPan = round((_PanServoUL + _PanServoLL)/2) #Uncomment to make pan and tilt reset to middle
+curPosTilt = round((_TiltServoUL + _TiltServoLL)/2)
 
 #Initialize desired positions
 desPosTilt = 0
@@ -267,13 +265,13 @@ while True:
 		if int(Cface[0]) > (camCenter[0]) and absoluteDistanceX > boundFace:
 			distance =0
 			speed =.1
-			if absoluteDistanceX > 40:
+			if absoluteDistanceX > (boundFace + 40):
 				distance = 7
 				speed = 1
-			elif absoluteDistanceX > 20:
+			elif absoluteDistanceX > (boundFace + 20):
 				distance = 4
 				speed = .5
-			elif absoluteDistanceX > 5:
+			elif absoluteDistanceX > (boundFace + 5):
 				distance = 1
 				speed = .1
 			print(str(PanServo) + '=' + str(curPosPan) + '\n')
@@ -283,13 +281,13 @@ while True:
 		elif int(Cface[0]) < (camCenter[0]) and absoluteDistanceX > boundFace:
 			distance =0
 			speed =.1
-			if absoluteDistanceX > 40:
+			if absoluteDistanceX > (boundFace + 40):
 				distance = 7
 				speed = 1
-			elif absoluteDistanceX > 20:
+			elif absoluteDistanceX > (boundFace + 20):
 				distance = 4
 				speed = .5
-			elif absoluteDistanceX > 8:
+			elif absoluteDistanceX > (boundFace + 5):
 				distance = 1
 				speed = .1
 			centerPan = "left "
@@ -300,13 +298,13 @@ while True:
 		if int(Cface[1]) > (camCenter[1]) and absoluteDistanceY > boundFace:
 			distance =0
 			speed =.1
-			if absoluteDistanceY > 20:
+			if absoluteDistanceY > (boundFace + 20):
 				distance = 9
 				speed = 1
-			elif absoluteDistanceY > 10:
+			elif absoluteDistanceY > (boundFace + 10):
 				distance = 4
 				speed = .5
-			elif absoluteDistanceY > 5:
+			elif absoluteDistanceY > (boundFace + 5):
 				distance = 1
 				speed = .1
 			print(str(PanServo) + '=' + str(curPosPan) + '\n')
@@ -315,13 +313,13 @@ while True:
 		elif int(Cface[1]) < (camCenter[1]) and absoluteDistanceY > boundFace:
 			distance =0
 			speed =.1
-			if absoluteDistanceY > 20:
+			if absoluteDistanceY > (boundFace + 20):
 				distance = 9
 				speed = 1
-			elif absoluteDistanceY > 10:
+			elif absoluteDistanceY > (boundFace + 10):
 				distance = 4
 				speed = .5
-			elif absoluteDistanceY > 5:
+			elif absoluteDistanceY > (boundFace + 5):
 				distance = 1
 				speed = .1
 			print(str(PanServo) + '=' + str(curPosPan) + '\n')
